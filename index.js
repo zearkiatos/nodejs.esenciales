@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
 
-app.get("/",(request,response)=>{
-    response.send("Hola, estoy en la ruta '/'!");
-});
+require("./routes/views")(app);
+require("./routes/special")(app);
 
 console.log("Iniciando Express.js 🤖");
 

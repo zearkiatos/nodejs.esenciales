@@ -23,6 +23,7 @@
   "homepage": "https://github.com/zearkiatos/nodejs.express#readme",
   "dependencies": {
     "express": "4.17.1",
+    "glob": "7.1.6",
     "nodemon": "2.0.2"
   }
 }

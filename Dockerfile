@@ -6,11 +6,8 @@ apt-get upgrade -y
 WORKDIR /usr/src/app
 COPY [".","/usr/src/app"]
 
-RUN npm install && \
-node .
+RUN npm install
 
 EXPOSE 3001
 
 CMD ["npx","nodemon","."]
-
-RUN npm run start
