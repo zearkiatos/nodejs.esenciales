@@ -1,0 +1,28 @@
+{
+  "name": "nodejsexpress",
+  "version": "1.0.0",
+  "description": "Repository for the Platzi Node.js esencials course",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zearkiatos/nodejs.express.git"
+  },
+  "keywords": [
+    "nodejs",
+    "esenciales"
+  ],
+  "author": "Pedro Capriles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zearkiatos/nodejs.express/issues"
+  },
+  "homepage": "https://github.com/zearkiatos/nodejs.express#readme",
+  "dependencies": {
+    "express": "4.17.1",
+    "nodemon": "2.0.2"
+  }
+}
