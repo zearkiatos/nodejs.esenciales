@@ -14,7 +14,7 @@ module.exports = (app) => {
 
   app.post(`${API_PATH}/pokemon`, async (request, response) => {
     try{
-        const pokemon = request.body.pokemon;
+        const pokemon = request.body;
         if (pokemon) {
             const result = await postPokemon(pokemon);
             return response.json(result);
