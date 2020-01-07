@@ -1,6 +1,6 @@
 const API_PATH = "/api";
 const pokemons = require("../../resources/pokemon");
-const {postPokemon, getPokemons, getPokemonByName, getPokemonByID} = require("../../db");
+const {postPokemon, getPokemons, getPokemonByName, getPokemonByID, deletePokemonByName} = require("../../db");
 module.exports = (app) => {
   app.get(`${API_PATH}/pokemons`, async (request, response) => {
     const result = await getPokemons();
@@ -31,5 +31,14 @@ module.exports = (app) => {
     catch(err){
         console.log(err);
     }
+  });
+
+  app.delete(`${API_PATH}/pokemon/:name`,async (request,response)=>{
+    const name = request.params.name;
+    if (name) {
+      const result = await deletePokemonByName(name);
+      return response.json();
+    }
+    response.status(400).send({reason: "No pokemon sent."})
   });
 };

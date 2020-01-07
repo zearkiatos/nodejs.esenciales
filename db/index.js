@@ -29,5 +29,10 @@ module.exports = {
     const db = mongo.instance().db(DB_NAME);
     const result = db.collection("pokemon").insertOne(pokemon);
     return result;
+  },
+  deletePokemonByName: function(name) {
+    const db = mongo.instance().db(DB_NAME);
+    const result = db.collection("pokemon").deleteOne({name});
+    return result;
   }
 };
