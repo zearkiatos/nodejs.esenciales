@@ -1,15 +1,22 @@
 const API_PATH = "/api";
 const pokemons = require("../../resources/pokemon");
-const {postPokemon} = require("../../db");
+const {postPokemon, getPokemons, getPokemonByName, getPokemonByID} = require("../../db");
 module.exports = (app) => {
-  app.get(`${API_PATH}/pokemon`, (request, response) => {
-    response.json(pokemons.results);
+  app.get(`${API_PATH}/pokemons`, async (request, response) => {
+    const result = await getPokemons();
+    return response.json(result);
   });
 
-  app.get(`${API_PATH}/pokemon/:name`, (request, response) => {
+  app.get(`${API_PATH}/pokemon/:name`, async (request, response) => {
     const name = request.params.name;
-    const pokemon = pokemons.results.find((pokemon) => pokemon.name === name);
-    response.json(pokemon);
+    const result = await getPokemonByName(name);
+    return response.json(result);
+  });
+
+  app.get(`${API_PATH}/pokemon/:id`, async (request, response) => {
+    const id = request.params.id;
+    const result = await getPokemonByID(id);
+    return response.json(result);
   });
 
   app.post(`${API_PATH}/pokemon`, async (request, response) => {
