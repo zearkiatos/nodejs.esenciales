@@ -1,38 +1,40 @@
-const mongo = require("./connect");
-const { DB_NAME } = require("./config");
+/* eslint-disable linebreak-style */
+const mongo = require('./connect');
+const { DB_NAME } = require('./config');
+
 module.exports = {
-  getPokemons: function() {
+  getPokemons() {
     const db = mongo.instance().db(DB_NAME);
     const result = db
-      .collection("pokemon")
+      .collection('pokemon')
       .find()
       .toArray();
     return result;
   },
-  getPokemonByID: function(id) {
+  getPokemonByID(id) {
     const db = mongo.instance().db(DB_NAME);
     const result = db
-      .collection("pokemon")
+      .collection('pokemon')
       .find({ id })
       .toArray();
     return result;
   },
-  getPokemonByName: function(name) {
+  getPokemonByName(name) {
     const db = mongo.instance().db(DB_NAME);
     const result = db
-      .collection("pokemon")
+      .collection('pokemon')
       .find({ name })
       .toArray();
     return result;
   },
-  postPokemon: function(pokemon) {
+  postPokemon(pokemon) {
     const db = mongo.instance().db(DB_NAME);
-    const result = db.collection("pokemon").insertOne(pokemon);
+    const result = db.collection('pokemon').insertOne(pokemon);
     return result;
   },
-  deletePokemonByName: function(name) {
+  deletePokemonByName(name) {
     const db = mongo.instance().db(DB_NAME);
-    const result = db.collection("pokemon").deleteOne({name});
+    const result = db.collection('pokemon').deleteOne({ name });
     return result;
-  }
+  },
 };

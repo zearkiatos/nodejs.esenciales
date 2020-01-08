@@ -8,7 +8,8 @@
     "start": "nodemon index.js",
     "fill-db": "node ./db/populate --fill",
     "clean-db": "node ./db/populate --clear",
-    "build-doc": "jsdoc -c jsdoc.json -r ."
+    "build-doc": "jsdoc -c jsdoc.json -r .",
+    "lint":"eslint ."
   },
   "repository": {
     "type": "git",

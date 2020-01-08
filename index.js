@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 const express = require('express');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
@@ -11,15 +12,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require('./routes/views')(app);
 require('./routes/special')(app);
 require('./routes/api')(app);
-const ops = require('./math/ops');
 
-const sum = ops.sum(5, 6);
-const product = ops.prod(5, 6);
-async function initMongo() {
-  const db = await mongo.connect();
-  if (db) {
-    initExpress();
-  }
+function closeApp() {
+  mongo.disconnect().then(() => {
+    process.exit(0);
+  });
 }
 function initExpress() {
   console.log('Iniciando Express.js 🤖');
@@ -29,11 +26,11 @@ function initExpress() {
     process.on('SIGTERM', closeApp);
   });
 }
-
-function closeApp() {
-  mongo.disconnect().then(() => {
-    process.exit(0);
-  });
+async function initMongo() {
+  const db = await mongo.connect();
+  if (db) {
+    initExpress();
+  }
 }
 
 initMongo();
