@@ -7,7 +7,8 @@
     "test": "mocha",
     "start": "nodemon index.js",
     "fill-db": "node ./db/populate --fill",
-    "clean-db": "node ./db/populate --clear"
+    "clean-db": "node ./db/populate --clear",
+    "build-doc": "jsdoc -c jsdoc.json -r ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "body-parser": "1.19.0",
     "express": "4.17.1",
     "glob": "7.1.6",
+    "jsdoc": "3.6.3",
     "mocha": "7.0.0",
     "mongodb": "3.4.1",
     "morgan": "1.9.1",

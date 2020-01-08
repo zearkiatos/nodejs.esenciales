@@ -11,6 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 require("./routes/views")(app);
 require("./routes/special")(app);
 require("./routes/api")(app);
+const ops = require("./math/ops");
+
+const sum = ops.sum(5,6);
+const product = ops.prod(5,6);
 
 async function initMongo() {
   const db = await mongo.connect();
