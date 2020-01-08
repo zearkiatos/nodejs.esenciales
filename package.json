@@ -4,10 +4,10 @@
   "description": "Repository for the Platzi Node.js esencials course",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon index.js",
-    "fill-db":"node ./db/populate --fill",
-    "clean-db":"node ./db/populate --clear"
+    "fill-db": "node ./db/populate --fill",
+    "clean-db": "node ./db/populate --clear"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,7 @@
     "body-parser": "1.19.0",
     "express": "4.17.1",
     "glob": "7.1.6",
+    "mocha": "7.0.0",
     "mongodb": "3.4.1",
     "morgan": "1.9.1",
     "nodemon": "2.0.2",
