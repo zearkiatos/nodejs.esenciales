@@ -1,7 +1,6 @@
 const MongoClient = require("mongodb").MongoClient;
 const config = require("./config");
 const connString = `mongodb://root:root@${config.DB_HOST}:${config.DB_PORT}`;
-
 let instance = null;
 let isDisconnecting = false;
 

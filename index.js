@@ -1,35 +1,32 @@
-const express = require("express");
-const logger = require("morgan");
-const bodyParser = require("body-parser");
-const app = express();
-const mongo = require("./db/connect");
+const express = require('express');
+const logger = require('morgan');
+const bodyParser = require('body-parser');
 
-app.use(logger("dev"));
+const app = express();
+const mongo = require('./db/connect');
+
+app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+require('./routes/views')(app);
+require('./routes/special')(app);
+require('./routes/api')(app);
+const ops = require('./math/ops');
 
-require("./routes/views")(app);
-require("./routes/special")(app);
-require("./routes/api")(app);
-const ops = require("./math/ops");
-
-const sum = ops.sum(5,6);
-const product = ops.prod(5,6);
-
+const sum = ops.sum(5, 6);
+const product = ops.prod(5, 6);
 async function initMongo() {
   const db = await mongo.connect();
   if (db) {
     initExpress();
   }
 }
-
 function initExpress() {
-  console.log("Iniciando Express.js 🤖");
-
+  console.log('Iniciando Express.js 🤖');
   app.listen(3000, () => {
-    console.log("Express ha iniciado correctamente! ✅ 🚀");
-    process.on("SIGINT", closeApp);
-    process.on("SIGTERM", closeApp);
+    console.log('Express ha iniciado correctamente! ✅ 🚀');
+    process.on('SIGINT', closeApp);
+    process.on('SIGTERM', closeApp);
   });
 }
 
