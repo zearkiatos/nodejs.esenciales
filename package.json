@@ -1,6 +1,6 @@
 {
   "name": "nodejsexpress-test-learning",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Repository for the Platzi Node.js esencials course",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "fill-db": "node ./db/populate --fill",
     "clean-db": "node ./db/populate --clear",
     "build-doc": "jsdoc -c jsdoc.json -r .",
-    "lint":"eslint ."
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
