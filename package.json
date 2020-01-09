@@ -1,5 +1,5 @@
 {
-  "name": "nodejsexpress",
+  "name": "nodejsexpress-test-learning",
   "version": "1.0.0",
   "description": "Repository for the Platzi Node.js esencials course",
   "main": "index.js",
@@ -17,7 +17,14 @@
   },
   "keywords": [
     "nodejs",
-    "esenciales"
+    "esenciales",
+    "pokemon",
+    "math",
+    "operations",
+    "test",
+    "express",
+    "learning",
+    "api"
   ],
   "author": "Pedro Capriles",
   "license": "ISC",
