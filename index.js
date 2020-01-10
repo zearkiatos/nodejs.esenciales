@@ -4,14 +4,14 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 const app = express();
-const mongo = require('./db/connect');
+const mongo = require('./src/db/connect');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-require('./routes/views')(app);
-require('./routes/special')(app);
-require('./routes/api')(app);
+require('./src/routes/views')(app);
+require('./src/routes/special')(app);
+require('./src/routes/api')(app);
 
 function closeApp() {
   mongo.disconnect().then(() => {
