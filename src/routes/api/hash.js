@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
 const hash = require('../../utils/hash');
+
 const API_PATH = '/api';
 module.exports = (app) => {
   app.get(`${API_PATH}/hash`, (request, response) => {
@@ -8,6 +9,6 @@ module.exports = (app) => {
   });
 
   app.get(`${API_PATH}/hola`, (request, response) => {
-    response.send('Hola');
+    for (let i = 0; i < 1e9; i++) { response.send('Hola'); }
   });
 };
