@@ -1,0 +1,55 @@
+{
+  "name": "nodejsexpress-test-learning",
+  "version": "1.1.0",
+  "description": "Repository for the Platzi Node.js esencials course",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon index.js",
+    "fill-db": "node ./src/db/populate --fill",
+    "clean-db": "node ./src/db/populate --clear",
+    "build-doc": "jsdoc -c jsdoc.json -r .",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zearkiatos/nodejs.express.git"
+  },
+  "keywords": [
+    "nodejs",
+    "esenciales",
+    "pokemon",
+    "math",
+    "operations",
+    "test",
+    "express",
+    "learning",
+    "api"
+  ],
+  "author": "Pedro Capriles",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zearkiatos/nodejs.express/issues"
+  },
+  "homepage": "https://github.com/zearkiatos/nodejs.express#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "glob": "7.1.6",
+    "jsdoc": "3.6.3",
+    "mocha": "7.0.0",
+    "mongodb": "3.4.1",
+    "morgan": "1.9.1",
+    "nodemon": "2.0.2",
+    "yargs": "15.1.0"
+  },
+  "devDependencies": {
+    "eslint": "6.8.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.19.1",
+    "grunt": "^1.0.4",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-uglify-es": "^3.3.0",
+    "uglify-es": "^3.3.9"
+  }
+}

@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  db:
+    env_file:
+      - db.env
+    build:
+      context: .
+      dockerfile: mongo.dockerfile
+    container_name: mongo
+    volumes:
+      - /data/db:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      mongonetwork:
+  app:
+    env_file: 
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nodejs.express
+    volumes: 
+      - ".:/usr/src/app"
+    ports:
+      - "3001:3000"
+    depends_on: 
+      - db
+    links:
+      - db
+    networks:
+      mongonetwork:
+networks:
+  mongonetwork:
+    driver: bridge
